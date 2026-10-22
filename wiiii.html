@@ -1,0 +1,2238 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Pink Shine - Centro de Belleza</title>
+
+<style>
+
+/* =====================================================
+   DISEÑO ORIGINAL PINK SHINE
+   ===================================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    background:
+    linear-gradient(rgba(255,255,255,.65),rgba(255,255,255,.65)),
+    url("https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9");
+    background-size:cover;
+    background-position:center;
+    background-attachment:fixed;
+    background-repeat:no-repeat;
+    color:#222;
+}
+
+header{
+    background:#e91e63;
+    color:white;
+    text-align:center;
+    padding:25px;
+}
+
+header h1{
+    font-size:40px;
+}
+
+header p{
+    font-size:22px;
+}
+
+.servicios{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:20px;
+    padding:40px;
+}
+
+.card{
+    background:white;
+    width:280px;
+    border-radius:20px;
+    overflow:hidden;
+    box-shadow:0 5px 15px rgba(0,0,0,.20);
+    cursor:pointer;
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+    box-shadow:0 8px 20px rgba(0,0,0,.30);
+}
+
+.card img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+}
+
+.card h2{
+    text-align:center;
+    color:#35aabe;
+    padding:10px;
+}
+
+.card p{
+    text-align:center;
+    padding:0 15px 20px;
+}
+
+.boton-contenedor{
+    text-align:center;
+    margin-bottom:30px;
+}
+
+button{
+    background:#75e3ff;
+    color:white;
+    border:none;
+    padding:15px 35px;
+    font-size:20px;
+    border-radius:15px;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#a247d6;
+}
+
+label{
+    width:320px;
+    display:block;
+    margin:auto;
+    font-weight:bold;
+    text-align:left;
+}
+
+input,
+select{
+    width:320px;
+    padding:10px;
+    margin:8px auto 15px;
+    border-radius:10px;
+    border:1px solid #ccc;
+    display:block;
+}
+
+.formulario{
+    display:none;
+    background:rgba(255,255,255,.95);
+    width:90%;
+    max-width:700px;
+    margin:30px auto;
+    padding:30px;
+    border-radius:20px;
+    box-shadow:0 5px 20px rgba(0,0,0,.20);
+    text-align:center;
+}
+
+.formulario h2{
+    color:#5dc1e9;
+    margin-bottom:20px;
+}
+
+.lista{
+    background:rgba(255,255,255,.95);
+    width:90%;
+    max-width:700px;
+    margin:30px auto;
+    padding:30px;
+    border-radius:20px;
+    box-shadow:0 5px 20px rgba(0,0,0,.20);
+}
+
+.lista h2{
+    color:#319eb1;
+    text-align:center;
+    margin-bottom:20px;
+}
+
+ul{
+    list-style:none;
+}
+
+li{
+    background:#38ffff;
+    padding:15px;
+    margin:10px 0;
+    border-radius:10px;
+}
+
+footer{
+    text-align:center;
+    padding:20px;
+    color:#53f4ff;
+}
+
+
+/* =====================================================
+   GALERÍA NUEVA
+   ===================================================== */
+
+.galeria-fondo{
+    display:none;
+    position:fixed;
+    z-index:9999;
+    left:0;
+    top:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,.75);
+    overflow-y:auto;
+    padding:30px 15px;
+}
+
+.galeria-contenido{
+    background:#fff;
+    width:95%;
+    max-width:950px;
+    margin:auto;
+    border-radius:25px;
+    padding:25px;
+    position:relative;
+    box-shadow:0 10px 40px rgba(0,0,0,.4);
+}
+
+.cerrar-galeria{
+    position:absolute;
+    right:20px;
+    top:15px;
+    background:#e91e63;
+    width:42px;
+    height:42px;
+    padding:0;
+    border-radius:50%;
+    font-size:25px;
+    line-height:42px;
+}
+
+.galeria-contenido h2{
+    text-align:center;
+    color:#d63384;
+    font-size:30px;
+    margin:10px 0;
+}
+
+.galeria-descripcion{
+    text-align:center;
+    margin:10px auto 25px;
+    max-width:700px;
+    color:#555;
+    font-size:17px;
+}
+
+.galeria-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:15px;
+}
+
+.ejemplo{
+    background:#fff;
+    border-radius:15px;
+    overflow:hidden;
+    box-shadow:0 3px 12px rgba(0,0,0,.18);
+    cursor:pointer;
+    transition:.3s;
+}
+
+.ejemplo:hover{
+    transform:scale(1.03);
+}
+
+.ejemplo img{
+    width:100%;
+    height:200px;
+    object-fit:cover;
+    display:block;
+}
+
+.ejemplo p{
+    text-align:center;
+    padding:10px;
+    color:#d63384;
+    font-weight:bold;
+}
+
+.etiquetas{
+    text-align:center;
+    margin-top:20px;
+}
+
+.etiqueta{
+    display:inline-block;
+    background:#ffd6e8;
+    color:#c2185b;
+    padding:8px 15px;
+    margin:5px;
+    border-radius:20px;
+    font-size:14px;
+}
+
+
+/* =====================================================
+   IMAGEN AMPLIADA
+   ===================================================== */
+
+.imagen-ampliada{
+    display:none;
+    position:fixed;
+    z-index:10000;
+    left:0;
+    top:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,.9);
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+}
+
+.imagen-ampliada img{
+    max-width:90%;
+    max-height:85%;
+    border-radius:15px;
+}
+
+.cerrar-imagen{
+    position:absolute;
+    top:20px;
+    right:25px;
+    background:#e91e63;
+    width:45px;
+    height:45px;
+    padding:0;
+    border-radius:50%;
+}
+
+
+/* =====================================================
+   PAGO
+   ===================================================== */
+
+#seccionPago{
+    display:none;
+    background:rgba(255,255,255,.97);
+    width:90%;
+    max-width:700px;
+    margin:30px auto;
+    padding:30px;
+    border-radius:20px;
+    box-shadow:0 5px 20px rgba(0,0,0,.2);
+    text-align:center;
+}
+
+#seccionPago h2{
+    color:#d63384;
+}
+
+#qrPago{
+    width:250px;
+    max-width:80%;
+    margin:20px auto;
+    display:block;
+    border-radius:15px;
+}
+
+.contador{
+    font-size:25px;
+    font-weight:bold;
+    color:#e91e63;
+    margin:15px;
+}
+
+.whatsapp{
+    background:#25D366;
+}
+
+.whatsapp:hover{
+    background:#128C7E;
+}
+
+
+/* =====================================================
+   ADMINISTRADOR
+   ===================================================== */
+
+#loginAdmin,
+#contenidoAdmin{
+    display:none;
+    background:rgba(255,255,255,.97);
+    width:90%;
+    max-width:800px;
+    margin:30px auto;
+    padding:30px;
+    border-radius:20px;
+    box-shadow:0 5px 20px rgba(0,0,0,.2);
+}
+
+#loginAdmin h2,
+#contenidoAdmin h2{
+    color:#d63384;
+    text-align:center;
+}
+
+.reserva-admin{
+    background:#fff4fa;
+    border:1px solid #f5b6d2;
+    padding:15px;
+    border-radius:15px;
+    margin:15px 0;
+}
+
+.estado{
+    display:inline-block;
+    padding:6px 12px;
+    border-radius:15px;
+    font-weight:bold;
+    margin:5px 0;
+}
+
+.pendiente{
+    background:#ffe59b;
+    color:#755500;
+}
+
+.pagado{
+    background:#b9f6ca;
+    color:#176b2c;
+}
+
+.cancelado{
+    background:#ffcdd2;
+    color:#a00000;
+}
+
+.modal-codigo{
+    display:none;
+    position:fixed;
+    z-index:10001;
+    left:0;
+    top:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,.7);
+    justify-content:center;
+    align-items:center;
+}
+
+.modal-codigo-contenido{
+    background:white;
+    width:90%;
+    max-width:450px;
+    padding:30px;
+    border-radius:20px;
+    text-align:center;
+}
+
+.error{
+    color:red;
+    font-weight:bold;
+    margin:10px;
+}
+
+
+/* =====================================================
+   RESPONSIVE
+   ===================================================== */
+
+@media(max-width:700px){
+
+    header h1{
+        font-size:32px;
+    }
+
+    header p{
+        font-size:18px;
+    }
+
+    .servicios{
+        padding:20px;
+    }
+
+    .card{
+        width:90%;
+        max-width:350px;
+    }
+
+    .galeria-grid{
+        grid-template-columns:1fr;
+    }
+
+    input,
+    select,
+    label{
+        width:90%;
+    }
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     ENCABEZADO
+     ===================================================== -->
+
+<header>
+
+    <h1>Pink Shine ✦</h1>
+
+    <p>Centro de Belleza</p>
+
+</header>
+
+
+<!-- =====================================================
+     SERVICIOS
+     ===================================================== -->
+
+<section class="servicios">
+
+
+    <!-- MAQUILLAJE -->
+
+    <div class="card"
+         onclick="abrirGaleria('maquillaje')">
+
+        <img
+        src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9"
+        alt="Maquillaje">
+
+        <h2>Maquillaje</h2>
+
+        <p>
+            Maquillaje profesional para resaltar
+            tu belleza.
+        </p>
+
+    </div>
+
+
+    <!-- PEINADOS -->
+
+    <div class="card"
+         onclick="abrirGaleria('peinados')">
+
+        <img
+        src="https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f"
+        alt="Peinados">
+
+        <h2>Peinados</h2>
+
+        <p>
+            Peinados modernos para cada
+            ocasión.
+        </p>
+
+    </div>
+
+
+    <!-- MANICURE -->
+
+    <div class="card"
+         onclick="abrirGaleria('manicure')">
+
+        <img
+        src="https://images.unsplash.com/photo-1604654894610-df63bc536371"
+        alt="Manicure">
+
+        <h2>Manicure</h2>
+
+        <p>
+            Diseños y cuidado de uñas para un
+            look perfecto.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     BOTÓN RESERVAR
+     ===================================================== -->
+
+<div class="boton-contenedor">
+
+    <button onclick="mostrarFormulario()">
+        📅 Reservar Cita
+    </button>
+
+</div>
+
+
+<!-- =====================================================
+     FORMULARIO DE RESERVA
+     ===================================================== -->
+
+<div id="formulario"
+     class="formulario">
+
+    <h2>Reserva tu cita</h2>
+
+
+    <label>Nombre</label>
+
+    <input
+        id="nombre"
+        type="text"
+        required
+        minlength="2"
+        maxlength="50"
+        autocomplete="given-name"
+        placeholder="Ingresa tu nombre">
+
+
+    <label>Apellidos</label>
+
+    <input
+        id="apellidos"
+        type="text"
+        required
+        minlength="2"
+        maxlength="60"
+        autocomplete="family-name"
+        placeholder="Ingresa tus apellidos">
+
+
+    <label>Dirección</label>
+
+    <input
+        id="direccion"
+        type="text"
+        required
+        minlength="5"
+        maxlength="120"
+        autocomplete="street-address"
+        placeholder="Ingresa tu dirección">
+
+
+    <label>Correo electrónico</label>
+
+    <input
+        id="correo"
+        type="email"
+        required
+        maxlength="254"
+        autocomplete="email"
+        placeholder="Ingresa tu correo">
+
+
+    <label>Teléfono</label>
+
+    <input
+        id="telefono"
+        type="tel"
+        required
+        minlength="7"
+        maxlength="20"
+        autocomplete="tel"
+        placeholder="Ingresa tu teléfono">
+
+
+    <label>Servicio</label>
+
+    <select id="servicio" required>
+
+        <option value="">
+            — Selecciona un servicio —
+        </option>
+
+        <option value="Maquillaje">
+            Maquillaje
+        </option>
+
+        <option value="Peinado">
+            Peinado
+        </option>
+
+        <option value="Manicure">
+            Manicure
+        </option>
+
+    </select>
+
+
+    <label>Fecha</label>
+
+    <input
+        id="fecha"
+        type="date"
+        required
+        min="">
+
+
+    <label>Hora</label>
+
+    <input
+        id="hora"
+        type="time"
+        required
+        min="08:00"
+        max="17:00">
+
+
+    <label>Adelanto / Pago</label>
+
+    <input
+        id="adelanto"
+        type="number"
+        required
+        min="20"
+        step="0.01"
+        placeholder="Ingresa el monto del adelanto">
+
+
+    <button onclick="guardarReserva()">
+        Guardar Reserva
+    </button>
+
+</div>
+
+
+<!-- =====================================================
+     LISTA DE RESERVAS
+     ===================================================== -->
+
+<div class="lista">
+
+    <h2>📋 Lista de Reservas</h2>
+
+    <ul id="listaReservas"></ul>
+
+</div>
+
+
+<!-- =====================================================
+     SECCIÓN DE PAGO
+     ===================================================== -->
+
+<div id="seccionPago">
+
+    <h2>💳 Realiza tu pago</h2>
+
+    <p>
+        Tu reserva quedó pendiente de pago.
+    </p>
+
+    <p>
+        Tienes <strong>2 horas</strong>
+        para realizar el adelanto.
+    </p>
+
+    <!--
+      Coloca tu imagen QR con este nombre:
+      qr-pago.jpg
+      en la misma carpeta del HTML.
+    -->
+
+    <img
+        id="qrPago"
+        src="yy.jpeg"
+        alt="Código QR de pago">
+
+    <div
+        id="contador"
+        class="contador">
+    </div>
+
+    <button
+        class="whatsapp"
+        onclick="enviarWhatsApp()">
+
+        📱 Enviar comprobante por WhatsApp
+
+    </button>
+
+</div>
+
+
+<!-- =====================================================
+     ADMINISTRADOR
+     ===================================================== -->
+
+<div
+    id="loginAdmin">
+
+    <h2>🔐 Administrador</h2>
+
+    <br>
+
+    <input
+        id="passwordAdmin"
+        type="password"
+        placeholder="Contraseña">
+
+    <p
+        id="errorAdmin"
+        class="error">
+    </p>
+
+    <div style="text-align:center">
+
+        <button onclick="entrarAdmin()">
+            Entrar
+        </button>
+
+    </div>
+
+</div>
+
+
+<div
+    id="contenidoAdmin">
+
+    <h2>👩‍💼 Panel de Administrador</h2>
+
+    <br>
+
+    <div id="listaAdmin"></div>
+
+    <div style="text-align:center">
+
+        <button onclick="cerrarAdmin()">
+            Cerrar administrador
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- Acceso de administración oculto en la vista de clientes. -->
+
+<!-- =====================================================
+     GALERÍA
+     ===================================================== -->
+
+<div
+    id="galeriaFondo"
+    class="galeria-fondo">
+
+    <div class="galeria-contenido">
+
+        <button
+            class="cerrar-galeria"
+            onclick="cerrarGaleria()">
+
+            ×
+
+        </button>
+
+        <h2 id="tituloGaleria">
+            Nuestros trabajos
+        </h2>
+
+        <p
+            id="descripcionGaleria"
+            class="galeria-descripcion">
+        </p>
+
+        <div
+            id="galeriaGrid"
+            class="galeria-grid">
+        </div>
+
+        <div
+            id="etiquetasGaleria"
+            class="etiquetas">
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     IMAGEN AMPLIADA
+     ===================================================== -->
+
+<div
+    id="imagenAmpliada"
+    class="imagen-ampliada">
+
+    <button
+        class="cerrar-imagen"
+        onclick="cerrarImagen()">
+
+        ×
+
+    </button>
+
+    <img
+        id="imagenGrande"
+        src=""
+        alt="Ejemplo">
+
+</div>
+
+
+<!-- =====================================================
+     MODAL CÓDIGO
+     ===================================================== -->
+
+<div
+    id="modalCodigo"
+    class="modal-codigo">
+
+    <div class="modal-codigo-contenido">
+
+        <h2>🔐 Verificación</h2>
+
+        <p>
+            Ingresa el código de verificación
+            para eliminar la reserva.
+        </p>
+
+        <br>
+
+        <input
+            id="codigoIngresado"
+            type="number"
+            placeholder="Código de 6 números">
+
+        <p
+            id="errorCodigo"
+            class="error">
+        </p>
+
+        <button onclick="verificarCodigo()">
+            Verificar
+        </button>
+
+        <button onclick="cerrarModal()">
+            Cancelar
+        </button>
+
+    </div>
+
+</div>
+
+
+<footer>
+
+    <p>
+        © 2026 Pink Shine - Centro de Belleza
+    </p>
+
+</footer>
+
+
+
+<script>
+
+/* =====================================================
+   CONFIGURACIÓN
+   ===================================================== */
+
+const NUMERO_WHATSAPP = "59157723830";
+
+const PASSWORD_ADMIN = "PinkShine2026";
+
+const TIEMPO_PAGO =
+    2 * 60 * 60 * 1000;
+
+
+/* =====================================================
+   VARIABLES
+   ===================================================== */
+
+let reservas =
+    JSON.parse(
+        localStorage.getItem("pinkShineReservas")
+    ) || [];
+
+let reservaActual = null;
+
+let reservaEliminar = null;
+
+let codigoVerificacion = null;
+
+let adminActivo = false;
+
+let intervalo = null;
+
+
+/* =====================================================
+   GALERÍAS DE EJEMPLOS
+   ===================================================== */
+
+const galerias = {
+
+    maquillaje: {
+
+        titulo:"💄 Nuestros trabajos de Maquillaje",
+
+        descripcion:
+        "Realizamos diferentes estilos de maquillaje para que puedas elegir el que más te guste.",
+
+        imagenes:[
+
+            {
+                url:"hhhh.jpeg",
+                nombre:"Maquillaje natural"
+            },
+
+            {
+                url:"ccc.jpeg",
+                nombre:"Maquillaje social"
+            },
+
+            {
+                url:"kkk.jpeg",
+                nombre:"Maquillaje para eventos"
+            },
+
+            {
+                url:"iiiiiiii.jpeg",
+                nombre:"Maquillaje elegante"
+            },
+
+            {
+                url:"qqqq.jpeg",
+                nombre:"Maquillaje de fiesta"
+            },
+
+            {
+                url:"zzzz.jpeg",
+                nombre:"Maquillaje especial"
+            }
+
+        ],
+
+        etiquetas:[
+            "Maquillaje natural",
+            "Maquillaje social",
+            "Maquillaje para eventos"
+        ]
+
+    },
+
+
+    peinados: {
+
+        titulo:"💇‍♀️ Nuestros trabajos de Peinados",
+
+        descripcion:
+        "Creamos peinados modernos y elegantes para diferentes ocasiones.",
+
+        imagenes:[
+
+            {
+                url:"mm.jpeg",
+                nombre:"Recogidos"
+            },
+
+            {
+                url:"aaa.jpeg",
+                nombre:"Ondas"
+            },
+
+            {
+                url:"ooo.jpeg",
+                nombre:"Peinado elegante"
+            },
+
+            {
+                url:"bbbb.jpeg",
+                nombre:"Trenzas"
+            },
+
+            {
+                url:"nnn.jpeg",
+                nombre:"Peinado para eventos",
+            },
+
+            {
+                url:"vvv.jpeg",
+                nombre:"Peinado moderno"
+            },
+
+        ],
+
+        etiquetas:[
+            "Ondas",
+            "Recogidos",
+            "Trenzas"
+        ]
+
+    },
+
+
+    manicure: {
+
+        titulo:"💅 Nuestros diseños de Manicure",
+
+        descripcion:
+        "Ofrecemos diferentes diseños y estilos para que tus uñas luzcan cuidadas y bonitas.",
+
+        imagenes:[
+
+            {
+                url:"w.jpg",
+                 nombre:"Manicure clásico"
+            },
+
+            {
+                url:"e.jpeg",
+                  nombre:"Diseños elegantes"
+            },
+
+            {
+                url:"r.jpeg",
+                  nombre:"Uñas decoradas"
+            },
+
+            {
+                url:"jijijijijij.jpeg",
+                  nombre:"Diseño moderno"
+            },
+
+            {
+                url:"ggggg.jpeg",
+                 nombre:"Manicure de colores"
+            },
+
+            {
+                url:"ffff.jpeg",
+                   nombre:"Manicure especial"
+            }
+
+        ],
+
+        etiquetas:[
+            "Diseños elegantes",
+            "Decorados",
+            "Manicure clásico"
+        ]
+
+    }
+
+};
+
+
+/* =====================================================
+   ABRIR GALERÍA
+   ===================================================== */
+
+function abrirGaleria(tipo){
+
+    const galeria = galerias[tipo];
+
+    if(!galeria) return;
+
+    document.getElementById("tituloGaleria")
+        .textContent = galeria.titulo;
+
+    document.getElementById("descripcionGaleria")
+        .textContent = galeria.descripcion;
+
+
+    const grid =
+        document.getElementById("galeriaGrid");
+
+    grid.innerHTML = "";
+
+
+    galeria.imagenes.forEach(imagen => {
+
+        const div =
+            document.createElement("div");
+
+        div.className = "ejemplo";
+
+        div.innerHTML = `
+
+            <img
+                src="${imagen.url}"
+                alt="${imagen.nombre}"
+                onclick="ampliarImagen('${imagen.url}')">
+
+            <p>
+                ${imagen.nombre}
+            </p>
+
+        `;
+
+        grid.appendChild(div);
+
+    });
+
+
+    const etiquetas =
+        document.getElementById("etiquetasGaleria");
+
+    etiquetas.innerHTML = "";
+
+    galeria.etiquetas.forEach(texto => {
+
+        etiquetas.innerHTML += `
+            <span class="etiqueta">
+                ${texto}
+            </span>
+        `;
+
+    });
+
+
+    document.getElementById("galeriaFondo")
+        .style.display = "block";
+
+}
+
+
+/* =====================================================
+   CERRAR GALERÍA
+   ===================================================== */
+
+function cerrarGaleria(){
+
+    document.getElementById("galeriaFondo")
+        .style.display = "none";
+
+}
+
+
+/* =====================================================
+   AMPLIAR IMAGEN
+   ===================================================== */
+
+function ampliarImagen(url){
+
+    document.getElementById("imagenGrande")
+        .src = url;
+
+    document.getElementById("imagenAmpliada")
+        .style.display = "flex";
+
+}
+
+
+function cerrarImagen(){
+
+    document.getElementById("imagenAmpliada")
+        .style.display = "none";
+
+}
+
+
+/* =====================================================
+   FORMULARIO
+   ===================================================== */
+
+function mostrarFormulario(){
+
+    document.getElementById("formulario")
+        .style.display = "block";
+
+    document.getElementById("formulario")
+        .scrollIntoView({
+            behavior:"smooth"
+        });
+
+}
+
+
+/* =====================================================
+   GUARDAR RESERVA
+   ===================================================== */
+
+function guardarReserva(){
+
+    const nombre =
+        document.getElementById("nombre").value.trim();
+
+    const apellidos =
+        document.getElementById("apellidos").value.trim();
+
+    const direccion =
+        document.getElementById("direccion").value.trim();
+
+    const correo =
+        document.getElementById("correo").value.trim();
+
+    const telefono =
+        document.getElementById("telefono").value.trim();
+
+    const servicio =
+        document.getElementById("servicio").value;
+
+    const fecha =
+        document.getElementById("fecha").value;
+
+    const hora =
+        document.getElementById("hora").value;
+
+    const adelanto =
+        document.getElementById("adelanto").value;
+
+
+    if(
+        !nombre ||
+        !apellidos ||
+        !direccion ||
+        !correo ||
+        !telefono ||
+        !servicio ||
+        !fecha ||
+        !hora ||
+        !adelanto
+    ){
+
+        alert("Por favor completa todos los campos.");
+
+        return;
+
+    }
+
+
+    // Validar nombres y apellidos: letras, tildes, espacios, apóstrofes y guiones.
+    // La validación comprueba el formato, pero no puede saber si el nombre es real.
+    const patronNombre = /^[\p{L}]+(?:[ '\-][\p{L}]+)*$/u;
+    const nombreNormalizado = nombre.toLocaleLowerCase('es');
+    const apellidosNormalizados = apellidos.toLocaleLowerCase('es');
+    const palabrasFalsas = /^(abc|abcd|qwe|qwer|asdf|zxcv|test|prueba|nombre|apellido|ninguno|ninguna|no se|nose|xxx+)$/i;
+    const secuenciaAbecedario = (valor) => {
+        const limpio = valor.toLocaleLowerCase('es').normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z]/g, '');
+        return limpio.length >= 3 && /^(?:abcdefghijklmnopqrstuvwxyz|qwertyuiop|asdfghjkl|zxcvbnm)$/.test(limpio);
+    };
+    if (nombre.length < 2 || nombre.length > 50 || !patronNombre.test(nombre) || palabrasFalsas.test(nombreNormalizado) || secuenciaAbecedario(nombre)) {
+        alert("Escribe un nombre válido. No se aceptan ejemplos como 'abc', 'test' o secuencias de teclado.");
+        return;
+    }
+    if (apellidos.length < 2 || apellidos.length > 60 || !patronNombre.test(apellidos) || palabrasFalsas.test(apellidosNormalizados) || secuenciaAbecedario(apellidos)) {
+        alert("Escribe apellidos válidos. No se aceptan palabras de prueba ni secuencias de teclado.");
+        return;
+    }
+
+    // Dirección: rechazar respuestas genéricas y exigir al menos dos palabras útiles.
+    const direccionNormalizada = direccion.toLocaleLowerCase('es').replace(/[.,#-]/g, ' ').replace(/\s+/g, ' ').trim();
+    const direccionesGenericas = /^(tu casa|mi casa|casa|mi domicilio|tu domicilio|ninguna|ninguno|no se|nose|sin direccion|direccion|abc|test|prueba|aqui|por ahi)$/i;
+    const letrasDireccion = (direccion.match(/[\p{L}]/gu) || []).length;
+    const palabrasDireccion = direccionNormalizada.split(' ').filter(Boolean);
+    if (direccion.length < 6 || direccion.length > 120 || letrasDireccion < 4 || palabrasDireccion.length < 2 || direccionesGenericas.test(direccionNormalizada) || palabrasFalsas.test(direccionNormalizada)) {
+        alert("Ingresa una dirección más específica, por ejemplo: 'Av. América y Pando' o 'Calle 10, zona norte'. No se acepta 'tu casa'.");
+        return;
+    }
+
+    // Validar formato básico del correo.
+    const patronCorreo = /^[A-Za-z0-9.!#$%&'*+/=?^_`{|}~-]+@[A-Za-z0-9-]+(?:\.[A-Za-z0-9-]+)+$/;
+    if (correo.length > 254 || !patronCorreo.test(correo)) {
+        alert("Ingresa un correo electrónico válido, por ejemplo nombre@correo.com.");
+        return;
+    }
+
+    // Validar teléfono: permitir espacios, +, guiones y paréntesis, pero exigir 7–15 dígitos.
+    if (!/^[0-9+()\s-]+$/.test(telefono)) {
+        alert("El teléfono solo puede contener números, espacios, +, guiones y paréntesis.");
+        return;
+    }
+    const telefonoLimpio = telefono.replace(/[\s()+\-]/g, "");
+    if (!/^\d{7,15}$/.test(telefonoLimpio)) {
+        alert("Ingresa un teléfono válido de 7 a 15 dígitos.");
+        return;
+    }
+
+    const montoAdelanto = Number(adelanto);
+    if (!Number.isFinite(montoAdelanto) || montoAdelanto < 20) {
+        alert("El adelanto mínimo para reservar es de Bs 20. No se aceptan pagos menores.");
+        return;
+    }
+
+    // No permitir fechas pasadas ni horas fuera del horario del centro.
+    const ahora = new Date();
+    const fechaSeleccionada = new Date(fecha + "T" + hora + ":00");
+    const hoyLocal = new Date(ahora.getTime() - ahora.getTimezoneOffset() * 60000)
+        .toISOString().slice(0, 10);
+    if (fecha < hoyLocal || fechaSeleccionada <= ahora) {
+        alert("No puedes reservar una fecha u hora que ya pasó.");
+        return;
+    }
+    if (hora < "08:00" || hora > "17:00") {
+        alert("El horario para reservar es de 8:00 a. m. a 5:00 p. m., para finalizar antes de las 6:00 p. m.");
+        return;
+    }
+
+    /* EVITAR RESERVAS DUPLICADAS */
+
+    const existe = reservas.some(reserva =>
+
+        reserva.fecha === fecha &&
+        reserva.hora === hora &&
+        reserva.estado !== "Cancelada"
+
+    );
+
+
+    if(existe){
+
+        alert(
+            "Ya existe una reserva para esa fecha y hora."
+        );
+
+        return;
+
+    }
+
+
+    const nuevaReserva = {
+
+        id:Date.now(),
+
+        nombre:nombre,
+
+        apellidos:apellidos,
+
+        direccion:direccion,
+
+        correo:correo,
+
+        telefono:telefono,
+
+        servicio:servicio,
+
+        fecha:fecha,
+
+        hora:hora,
+
+        adelanto:Number(adelanto),
+
+        estado:"Pendiente de pago",
+
+        limitePago:
+            Date.now() + TIEMPO_PAGO
+
+    };
+
+
+    reservas.push(nuevaReserva);
+
+
+    localStorage.setItem(
+        "pinkShineReservas",
+        JSON.stringify(reservas)
+    );
+
+
+    reservaActual = nuevaReserva;
+
+
+    mostrarReservas();
+
+    mostrarPago();
+
+    limpiarFormulario();
+
+
+    alert(
+        "Reserva creada correctamente. Tienes 2 horas para realizar el pago."
+    );
+
+}
+
+
+/* =====================================================
+   LIMPIAR FORMULARIO
+   ===================================================== */
+
+function limpiarFormulario(){
+
+    document.getElementById("nombre").value = "";
+
+    document.getElementById("apellidos").value = "";
+
+    document.getElementById("direccion").value = "";
+
+    document.getElementById("correo").value = "";
+
+    document.getElementById("telefono").value = "";
+
+    document.getElementById("servicio").value = "";
+
+    document.getElementById("fecha").value = "";
+
+    document.getElementById("hora").value = "";
+
+    document.getElementById("adelanto").value = "";
+
+}
+
+
+/* =====================================================
+   MOSTRAR RESERVAS
+   ===================================================== */
+
+function mostrarReservas(){
+
+    const lista =
+        document.getElementById("listaReservas");
+
+    lista.innerHTML = "";
+
+
+    reservas.forEach(reserva => {
+
+        let clase = "pendiente";
+
+
+        if(reserva.estado === "Pago confirmado"){
+            clase = "pagado";
+        }
+
+        if(reserva.estado === "Cancelada"){
+            clase = "cancelado";
+        }
+
+
+        const li =
+            document.createElement("li");
+
+
+        li.innerHTML = `
+
+            <strong>Nombre:</strong>
+            ${escapeHTML(reserva.nombre)}
+            ${escapeHTML(reserva.apellidos)}
+            <br>
+
+            <strong>Teléfono:</strong>
+            ${escapeHTML(reserva.telefono)}
+            <br>
+
+            <strong>Servicio:</strong>
+            ${escapeHTML(reserva.servicio)}
+            <br>
+
+            <strong>Fecha:</strong>
+            ${escapeHTML(reserva.fecha)}
+            <br>
+
+            <strong>Hora:</strong>
+            ${escapeHTML(reserva.hora)}
+            <br>
+
+            <span class="estado ${clase}">
+                ${escapeHTML(reserva.estado)}
+            </span>
+
+            <br><br>
+
+            <button
+                style="font-size:14px;padding:8px 15px"
+                onclick="solicitarEliminacion(${reserva.id})">
+
+                🗑️ Eliminar
+
+            </button>
+
+        `;
+
+
+        lista.appendChild(li);
+
+    });
+
+}
+
+
+/* =====================================================
+   PAGO
+   ===================================================== */
+
+function mostrarPago(){
+
+    if(!reservaActual) return;
+
+
+    document.getElementById("seccionPago")
+        .style.display = "block";
+
+
+    document.getElementById("seccionPago")
+        .scrollIntoView({
+            behavior:"smooth"
+        });
+
+
+    iniciarContador();
+
+}
+
+
+function iniciarContador(){
+
+    clearInterval(intervalo);
+
+    actualizarContador();
+
+    intervalo =
+        setInterval(
+            actualizarContador,
+            1000
+        );
+
+}
+
+
+function actualizarContador(){
+
+    if(!reservaActual) return;
+
+
+    const restante =
+        reservaActual.limitePago -
+        Date.now();
+
+
+    if(restante <= 0){
+
+        clearInterval(intervalo);
+
+        cancelarPorTiempo();
+
+        return;
+
+    }
+
+
+    const horas =
+        Math.floor(
+            restante / (1000 * 60 * 60)
+        );
+
+
+    const minutos =
+        Math.floor(
+            (restante % (1000 * 60 * 60)) /
+            (1000 * 60)
+        );
+
+
+    const segundos =
+        Math.floor(
+            (restante % (1000 * 60)) /
+            1000
+        );
+
+
+    document.getElementById("contador")
+        .textContent =
+        `Tiempo restante: ${horas}h ${minutos}m ${segundos}s`;
+
+}
+
+
+/* =====================================================
+   CANCELACIÓN AUTOMÁTICA
+   ===================================================== */
+
+function cancelarPorTiempo(){
+
+    if(!reservaActual) return;
+
+
+    const reserva =
+        reservas.find(
+            r => r.id === reservaActual.id
+        );
+
+
+    if(!reserva) return;
+
+
+    if(reserva.estado === "Pendiente de pago"){
+
+        reserva.estado = "Cancelada";
+
+
+        localStorage.setItem(
+            "pinkShineReservas",
+            JSON.stringify(reservas)
+        );
+
+
+        mostrarReservas();
+
+
+        document.getElementById("seccionPago")
+            .style.display = "none";
+
+
+        alert(
+            "El tiempo de pago terminó. La reserva fue cancelada automáticamente."
+        );
+
+
+        reservaActual = null;
+
+    }
+
+}
+
+
+/* =====================================================
+   WHATSAPP
+   ===================================================== */
+
+function enviarWhatsApp(){
+
+    if(!reservaActual){
+
+        alert("No hay una reserva pendiente.");
+
+        return;
+
+    }
+
+
+    const mensaje =
+
+        "Hola, soy " +
+        reservaActual.nombre +
+        " " +
+        reservaActual.apellidos +
+        ".%0A%0A" +
+
+        "Deseo enviar mi comprobante de pago " +
+        "para mi reserva de Pink Shine.%0A%0A" +
+
+        "Servicio: " +
+        reservaActual.servicio +
+        "%0A" +
+
+        "Fecha: " +
+        reservaActual.fecha +
+        "%0A" +
+
+        "Hora: " +
+        reservaActual.hora +
+        "%0A" +
+
+        "Adelanto: Bs " +
+        reservaActual.adelanto +
+        "%0A%0A" +
+
+        "Adjunto mi comprobante de pago.";
+
+
+    window.open(
+        "https://wa.me/" +
+        NUMERO_WHATSAPP +
+        "?text=" +
+        mensaje,
+        "_blank"
+    );
+
+}
+
+
+/* =====================================================
+   ADMIN
+   ===================================================== */
+
+function mostrarAdmin(){
+
+    // Acceso discreto: abre la página con #gestion-privada.
+    // Esto oculta el acceso visual, pero no reemplaza una autenticación de servidor.
+    if (window.location.hash !== "#gestion-privada") {
+        return;
+    }
+
+    document.getElementById("loginAdmin").style.display = "block";
+    document.getElementById("loginAdmin").scrollIntoView({
+        behavior: "smooth"
+    });
+
+}
+
+
+function entrarAdmin(){
+
+    const password =
+        document.getElementById("passwordAdmin")
+        .value;
+
+
+    if(password !== PASSWORD_ADMIN){
+
+        document.getElementById("errorAdmin")
+            .textContent =
+            "Contraseña incorrecta.";
+
+        return;
+
+    }
+
+
+    adminActivo = true;
+
+
+    document.getElementById("loginAdmin")
+        .style.display = "none";
+
+
+    document.getElementById("contenidoAdmin")
+        .style.display = "block";
+
+
+    mostrarReservasAdmin();
+
+}
+
+
+function mostrarReservasAdmin(){
+
+    if(!adminActivo) return;
+
+
+    const lista =
+        document.getElementById("listaAdmin");
+
+    lista.innerHTML = "";
+
+
+    if(reservas.length === 0){
+
+        lista.innerHTML =
+            "<p>No hay reservas.</p>";
+
+        return;
+
+    }
+
+
+    reservas.forEach(reserva => {
+
+        const div =
+            document.createElement("div");
+
+        div.className = "reserva-admin";
+
+
+        let botonPago = "";
+
+
+        if(
+            reserva.estado ===
+            "Pendiente de pago"
+        ){
+
+            botonPago = `
+
+                <button
+                    style="font-size:15px;padding:10px"
+                    onclick="confirmarPago(${reserva.id})">
+
+                    ✅ Confirmar pago
+
+                </button>
+
+            `;
+
+        }
+
+
+        div.innerHTML = `
+
+            <strong>Cliente:</strong>
+            ${escapeHTML(reserva.nombre)}
+            ${escapeHTML(reserva.apellidos)}
+            <br>
+
+            <strong>Dirección:</strong>
+            ${escapeHTML(reserva.direccion)}
+            <br>
+
+            <strong>Correo:</strong>
+            ${escapeHTML(reserva.correo)}
+            <br>
+
+            <strong>Teléfono:</strong>
+            ${escapeHTML(reserva.telefono)}
+            <br>
+
+            <strong>Servicio:</strong>
+            ${escapeHTML(reserva.servicio)}
+            <br>
+
+            <strong>Fecha:</strong>
+            ${escapeHTML(reserva.fecha)}
+            <br>
+
+            <strong>Hora:</strong>
+            ${escapeHTML(reserva.hora)}
+            <br>
+
+            <strong>Adelanto:</strong>
+            Bs ${reserva.adelanto}
+            <br><br>
+
+            <span class="estado
+                ${
+                    reserva.estado ===
+                    "Pago confirmado"
+                    ? "pagado"
+                    :
+                    reserva.estado ===
+                    "Cancelada"
+                    ? "cancelado"
+                    : "pendiente"
+                }">
+
+                ${escapeHTML(reserva.estado)}
+
+            </span>
+
+            <br><br>
+
+            ${botonPago}
+
+        `;
+
+
+        lista.appendChild(div);
+
+    });
+
+}
+
+
+/* =====================================================
+   CONFIRMAR PAGO
+   ===================================================== */
+
+function confirmarPago(id) {
+    if (!adminActivo) {
+        alert("🔒 Debes iniciar sesión como administrador.");
+        return;
+    }
+
+    // Sincronizar la lista de esta página con lo guardado en el navegador.
+    reservas = JSON.parse(
+        localStorage.getItem("pinkShineReservas") || "[]"
+    );
+
+    const reserva = reservas.find(r => r.id === id);
+
+    if (!reserva) {
+        alert("❌ No se encontró la reserva.");
+        return;
+    }
+
+    if (reserva.estado === "Pago confirmado") {
+        alert("✅ Este pago ya está confirmado.");
+        return;
+    }
+
+    const confirmar = confirm(
+        "¿Confirmar que recibiste el adelanto de esta reserva?"
+    );
+
+    if (!confirmar) return;
+
+    reserva.estado = "Pago confirmado";
+    reserva.limitePago = null;
+
+    localStorage.setItem(
+        "pinkShineReservas",
+        JSON.stringify(reservas)
+    );
+
+    alert("✅ ¡Pago confirmado correctamente!");
+
+    mostrarReservasAdmin();
+    mostrarReservas();
+}
+
+
+/* =====================================================
+   CERRAR ADMIN
+   ===================================================== */
+
+function cerrarAdmin(){
+
+    adminActivo = false;
+
+
+    document.getElementById("contenidoAdmin")
+        .style.display = "none";
+
+
+    document.getElementById("passwordAdmin")
+        .value = "";
+
+}
+
+
+/* =====================================================
+   ELIMINAR RESERVA
+   ===================================================== */
+
+function solicitarEliminacion(id){
+
+    reservaEliminar = id;
+
+
+    enviarCodigo();
+
+}
+
+
+function enviarCodigo(){
+
+    codigoVerificacion =
+        Math.floor(
+            100000 +
+            Math.random() * 900000
+        ).toString();
+
+
+    /*
+      DEMOSTRACIÓN:
+      En una página real el código debería
+      enviarse mediante SMS o un servicio seguro.
+    */
+
+    alert(
+        "Código de verificación de demostración: " +
+        codigoVerificacion
+    );
+
+
+    document.getElementById("modalCodigo")
+        .style.display = "flex";
+
+}
+
+
+function verificarCodigo(){
+
+    const ingresado =
+        document.getElementById("codigoIngresado")
+        .value;
+
+
+    if(
+        ingresado !== codigoVerificacion
+    ){
+
+        document.getElementById("errorCodigo")
+            .textContent =
+            "Código incorrecto.";
+
+        return;
+
+    }
+
+
+    const confirmar =
+        confirm(
+            "¿Seguro que deseas eliminar esta reserva?"
+        );
+
+
+    if(!confirmar) return;
+
+
+    reservas =
+        reservas.filter(
+            r => r.id !== reservaEliminar
+        );
+
+
+    localStorage.setItem(
+        "pinkShineReservas",
+        JSON.stringify(reservas)
+    );
+
+
+    if(
+        reservaActual &&
+        reservaActual.id === reservaEliminar
+    ){
+
+        reservaActual = null;
+
+        clearInterval(intervalo);
+
+        document.getElementById("seccionPago")
+            .style.display = "none";
+
+    }
+
+
+    mostrarReservas();
+
+    cerrarModal();
+
+
+    alert(
+        "Reserva eliminada correctamente."
+    );
+
+}
+
+
+function cerrarModal(){
+
+    document.getElementById("modalCodigo")
+        .style.display = "none";
+
+    document.getElementById("codigoIngresado")
+        .value = "";
+
+    document.getElementById("errorCodigo")
+        .textContent = "";
+
+    codigoVerificacion = null;
+
+    reservaEliminar = null;
+
+}
+
+
+/* =====================================================
+   PROTECCIÓN DE TEXTO
+   ===================================================== */
+
+function escapeHTML(text){
+
+    return String(text)
+        .replace(/&/g,"&amp;")
+        .replace(/</g,"&lt;")
+        .replace(/>/g,"&gt;")
+        .replace(/"/g,"&quot;")
+        .replace(/'/g,"&#039;");
+
+}
+
+
+/* =====================================================
+   REVISAR RESERVAS
+   ===================================================== */
+
+function revisarReservas(){
+
+    let cambio = false;
+
+
+    reservas.forEach(reserva => {
+
+        if(
+            reserva.estado ===
+            "Pendiente de pago" &&
+            Date.now() >= reserva.limitePago
+        ){
+
+            reserva.estado =
+                "Cancelada";
+
+            cambio = true;
+
+        }
+
+    });
+
+
+    if(cambio){
+
+        localStorage.setItem(
+            "pinkShineReservas",
+            JSON.stringify(reservas)
+        );
+
+    }
+
+}
+
+
+/* =====================================================
+   RECUPERAR RESERVA PENDIENTE
+   ===================================================== */
+
+function recuperarReservaPendiente(){
+
+    const pendiente =
+        reservas.find(
+            r =>
+            r.estado === "Pendiente de pago" &&
+            Date.now() < r.limitePago
+        );
+
+
+    if(pendiente){
+
+        reservaActual = pendiente;
+
+        mostrarPago();
+
+    }
+
+}
+
+
+/* =====================================================
+   CERRAR CON ESC
+   ===================================================== */
+
+document.addEventListener(
+    "keydown",
+    function(event){
+
+        if(event.key === "Escape"){
+
+            cerrarGaleria();
+
+            cerrarImagen();
+
+            cerrarModal();
+
+        }
+
+    }
+);
+
+
+/* =====================================================
+   INICIAR
+   ===================================================== */
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function(){
+
+        if (window.location.hash === "#gestion-privada") {
+            mostrarAdmin();
+        }
+
+        const ahoraLocal = new Date();
+        const fechaMinima = new Date(ahoraLocal.getTime() - ahoraLocal.getTimezoneOffset() * 60000)
+            .toISOString().slice(0, 10);
+        document.getElementById("fecha").min = fechaMinima;
+
+        revisarReservas();
+
+        mostrarReservas();
+
+        recuperarReservaPendiente();
+
+    }
+);
+
+</script>
+
+
+</body>
+</html>
